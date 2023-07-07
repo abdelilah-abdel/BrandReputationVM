@@ -65,10 +65,9 @@
 
 
          <!-- facebook -->
-         <a href="{% provider_login_url "facebook" metho="js_sdk" %}" class="col-md-offset-2">
-          OR Login with Facebook
-      </a>
-
+         <button class="btn btn-primary mb-2">
+          <a href="{% url 'social:begin' 'facebook' %}">Login with Facebook</a>
+          </button>
         </div>
 
 

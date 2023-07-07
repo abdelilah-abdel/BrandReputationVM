@@ -3,7 +3,13 @@ from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 # from transformers import pipeline
 from django.contrib.auth.decorators import login_required
 
-
+  
+def login(request):
+    return render(request, 'login.html')
+ 
+@login_required
+def home(request):
+    return render(request, 'home.html')
 
 #VADER sentiment analysis function
 def sentiment_Vader(text):
@@ -52,10 +58,5 @@ def home(request):
     return render(request, 'home.html', {'sentiment_result': sentiment_result,  "Radio":selected_value,"Q":q ,"Request":Request})
 
 
-#login page
-def login(request):
-    return render(request, 'login.html')
-@login_required
-def home(request):
-    return render(request, 'home.html')
+
    

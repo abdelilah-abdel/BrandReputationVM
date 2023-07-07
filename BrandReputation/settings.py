@@ -38,12 +38,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'BrandApp',
+    
     'social_django',
     'django.contrib.sites',
  
 
 
-    'oauth2_provider',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -83,6 +83,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
             ],
         },
     },
@@ -150,18 +151,19 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTHENTICATION_BACKENDS = [
     'social_core.backends.facebook.FacebookOAuth2',
     'django.contrib.auth.backends.ModelBackend',
-]
-LOGIN_URL = 'login'
-LOGIN_REDIRECT_URL = ''
-LOGOUT_URL = 'logout'
-LOGOUT_REDIRECT_URL = 'login'
-SOCIAL_AUTH_FACEBOOK_KEY = "608154021406628"
-SOCIAL_AUTH_FACEBOOK_SECRET = "aa8bda869c0766924528a5ff54fddb76"
-#for extra info
-SOCIAL_AUTH_FACEBOOK_SCOPE = [
-    'email',
-]
+    'social_core.backends.linkedin.LinkedinOAuth2',
+    'social_core.backends.twitter.TwitterOAuth',
+    'social_core.backends.google.GoogleOAuth2',
+    'social_core.backends.google.GoogleOAuth',
+    'social_core.backends.google.GooglePlusAuth',
+    ]
+
+
+SOCIAL_AUTH_FACEBOOK_KEY = "1009287450427846"
+SOCIAL_AUTH_FACEBOOK_SECRET = "7ab7c103da58c979bdb6d7239e2ca105"
+
 
 SOCIAL_AUTH_URL_NAMESPACE = 'social'
 
-LOGIN_REDIRECT_URL ="/"
+
+
